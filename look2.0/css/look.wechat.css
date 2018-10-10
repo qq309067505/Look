@@ -1,0 +1,148 @@
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.look-container .look-screen {
+    background: rgba(0, 0, 0, .2);
+}
+
+
+
+.look-box.alert,
+.look-box.prompt,
+.look-box.confirm{
+    background: rgba(250, 250, 250, .95);
+}
+
+.look-container .look-box .look-icon {
+    width: 30px;
+    height: 30px;
+    left: 10px;
+    top: 50%;
+    margin-top: -15px;
+    position: absolute;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.look-container .look-box .look-head .look-title,
+.look-container .look-box .look-body,
+.look-container .look-box .look-floor,
+.look-container .look-box .look-head {
+    background: none;
+}
+
+.look-container .look-box.alert .look-body,
+.look-container .look-box.prompt .look-body p,
+.look-container .look-box.confirm .look-body {
+    text-align: center;
+    font-size: 16px;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.look-container .look-box.msg .look-body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 16px;
+}
+
+.look-container .look-box.loading .look-body {
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.look-container .look-box.loading .look-body p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.look-container .look-box .look-floor .look-floor-btns {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    border-top: 1px solid #ddd;
+}
+
+.look-container .look-box .look-floor .look-floor-btns .floor-btn {
+    width: 100%;
+    background: none;
+    float: none;
+    border: 0;
+    color: rgba(0, 0, 0, .7);
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    border-right: 1px solid #ddd;
+    margin-left: 0;
+}
+
+.look-container .look-box .look-floor .look-floor-btns .floor-btn:hover {
+    opacity: 1;
+}
+
+.look-container .look-box.skin-0 .look-floor .look-floor-btns .floor-btn {
+    color: #fff;
+    border-right: 1px solid rgba(255, 255, 255, .15);
+}
+
+.look-container .look-box.skin-0 .look-floor .look-floor-btns {
+    border-top: 1px solid rgba(255, 255, 255, .15);
+}
+
+.look-container .look-box .look-floor .look-floor-btns .floor-btn:last-child {
+    border-right: 0;
+    margin: 0;
+}
+
+.look-container .look-box .look-floor .look-floor-btns .floor-btn:active {
+    opacity: .8;
+    background: #e0e0e0;
+}
+
+.look-container .look-box.skin-0 .look-floor,
+.look-container .look-box.skin-0 .look-head,
+.look-container .look-box.skin-0 .look-body {
+    background: rgba(45,45,45,.7);
+}
+
+.look-container .look-box.skin-1 .look-floor,
+.look-container .look-box.skin-1 .look-head,
+.look-container .look-box.skin-1 .look-body {
+    background: rgba(255,255,255,.95);
+}
+
+.look-container .look-box.loading .look-body p {
+    white-space: normal;
+    margin-left: 10px;
+    padding:20px 0;
+}
+
+/* 动画 */
+
+.look-container.look-hide .look-box.look-animate-elastic {
+    transform: scale(1.2);
+    opacity: 0;
+    transition: transform .3s cubic-bezier(0.38, 0.63, 0.14, 1.29), opacity .3s;
+}
+
+.look-container.look-hide.look-hide-animate .look-box.look-animate-elastic {
+    transform: scale(.8);
+}
+
+.look-container.look-hide .look-box.look-animate-elastic.msg {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform .3s cubic-bezier(0.38, 0.63, 0.14, 1.29), opacity .2s;
+}
+
+.look-container .look-box.look-animate-elastic.msg {
+    transform: translateY(20px);
+}

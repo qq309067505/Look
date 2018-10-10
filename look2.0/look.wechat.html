@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-1.11.2.js"></script>
+    <script src="js/look-wechat.js"></script>
+    <!-- <link rel="stylesheet" href="iconfont/iconfont.css"> -->
+    <link rel="stylesheet" href="css/look.css">
+    <link rel="stylesheet" href="css/look.wechat.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <title>Document</title>
+    <script>
+        $(function () {
+
+            look.loading("加载中...").close(1000).onClose = function () {
+                look.msg("加载完毕").onClose = function () {
+                    look.confirm({
+                        content: "是否打开百度?",
+                        yes: function () {
+                            look.success("谢谢").onClose = function () {
+                                look.iframe("http://www.baidu.com").maxSize();
+                            };
+
+                        },
+                        no: function () {
+                            look.error("为什么");
+                        }
+                    })
+                }
+            };
+
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

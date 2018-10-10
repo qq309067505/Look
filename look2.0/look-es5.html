@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-1.11.2.js"></script>
+    <script src="js/look-es5.js"></script>
+    <!-- <link rel="stylesheet" href="iconfont/iconfont.css"> -->
+    <link rel="stylesheet" href="css/look.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .line {
+            padding: 10px;
+        }
+
+        .btn {
+            min-width: 70px;
+            padding: 0 10px;
+            box-sizing: border-box;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background: #007ACC;
+            color: #fff;
+            border-radius: 10px;
+            margin: 10px;
+            margin-left: 0;
+            cursor: pointer;
+            transition: .3s;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .btn.cur {
+            background: #DD5347;
+        }
+
+        .btn:hover {
+            opacity: .95;
+        }
+
+        .btn:active {
+            opacity: .9;
+        }
+    </style>
+    <title>Document</title>
+    <script>
+
+        $(function () {
+
+            look.alert({
+                content: '欢迎访问look.js',
+                showScreen: false,
+                direction: 'rightBottom',
+                icon: 'success'
+            })
+            var $look;
+            $('.btn.icon1').click(function () {
+                $look && $look.close()
+                $look = look.alert({
+                    content: 'HI ~',
+                    showScreen: false,
+                    icon: 'success'
+                })
+            })
+            $('.btn.icon2').click(function () {
+                $look && $look.close()
+                $look = look.alert({
+                    content: 'HI ~',
+                    showScreen: false,
+                    icon: 'error'
+                })
+            })
+            $('.btn.icon3').click(function () {
+                $look && $look.close()
+                $look = look.alert({
+                    content: 'HI ~',
+                    showScreen: false,
+                    icon: 'info'
+                })
+            })
+            $('.btn.icon4').click(function () {
+                $look && $look.close()
+                $look = look.alert({
+                    content: 'HI ~',
+                    showScreen: false,
+                    icon: 'doubt'
+                })
+            })
+            $('.btn.icon5').click(function () {
+                $look && $look.close()
+                $look = look.alert({
+                    content: 'HI ~',
+                    showScreen: false,
+                    icon: 'lock'
+                })
+            })
+            $('.btn.icon6').click(function () {
+                $look && $look.close()
+                $look = look.alert({
+                    content: 'HI ~',
+                    showScreen: false,
+                    icon: 'face-success'
+                })
+            })
+            $('.btn.icon7').click(function () {
+                $look && $look.close()
+                $look = look.alert({
+                    content: 'HI ~',
+                    showScreen: false,
+                    icon: 'face-error'
+                })
+            })
+
+            $('.btn.alert1').click(function () {
+                look.alert('我是普通弹窗');
+            })
+            $('.btn.alert1-0').click(function () {
+                look.alert({
+                    skin: '0',
+                    content: '开启简约模式'
+                });
+            })
+            $('.btn.alert2').click(function () {
+                look.alert({
+                    content: '无遮罩',
+                    showScreen: false
+                })
+            })
+            $('.btn.alert3').click(function () {
+                look.alert({
+                    content: '<p style="color:green">内容也可以是html</p><p>遮罩层也可以自定义</p><p>按钮可以是无数个</p><p>宽度也可以控制</p>',
+                    title: '<span style="color:#1E9FFF  ">标题是html</span>',
+                    maxWidth: '80%',
+                    buttons: [{
+                        type: 'red',
+                        text: '按钮1',
+                        click: function () {
+                            look.success('hello')
+                        }
+                    }, {
+                        type: 'green',
+                        text: '按钮2',
+                        click: function () {
+                            look.error('hello')
+                        }
+                    }, {
+                        type: 'blue',
+                        text: '关闭',
+                        close: true,
+                        click: function () {
+                            look.msg('关闭')
+                        }
+                    }],
+                    animateType: 'rotate',
+                    showScreen: {
+                        'background': 'rgba(255,255,255,.5)'
+                    },
+                    clickScreenClose: true,
+                    clickScreen: function () {
+                        look.success('你点了遮罩');
+                    }
+                })
+            })
+
+            $('.btn.alert4').click(function () {
+                look.alert({
+                    content: '不显示title栏',
+                    titleBar: false
+                })
+            })
+
+            $('.btn.alert5').click(function () {
+                var mylook = look.alert({
+                    content: '2秒关闭',
+                    autoClose: 2000
+                });
+                // mylook.close(1000) 这样也可以关闭
+            })
+
+            $('.btn.alert6').click(function () {
+                look.confirm({
+                    content: '关闭所有alert类型的弹窗？',
+                    showScreen: false,
+                    yes: function () {
+                        look.close('alert');
+                    }
+                })
+                look.alert({
+                    content: 'leftTop',
+                    showScreen: false,
+                    direction: 'leftTop'
+                });
+                look.alert({
+                    content: 'top',
+                    showScreen: false,
+                    direction: 'top'
+                });
+                look.alert({
+                    content: 'rightTop',
+                    showScreen: false,
+                    direction: 'rightTop'
+                });
+
+                look.alert({
+                    content: 'left',
+                    showScreen: false,
+                    direction: 'left'
+                });
+                look.alert({
+                    content: 'right',
+                    showScreen: false,
+                    direction: 'right'
+                });
+                look.alert({
+                    content: 'leftBottom',
+                    showScreen: false,
+                    direction: 'leftBottom'
+                });
+                look.alert({
+                    content: 'bottom',
+                    showScreen: false,
+                    direction: 'bottom'
+                });
+                look.alert({
+                    content: 'rightBottom',
+                    showScreen: false,
+                    direction: 'rightBottom'
+                });
+
+
+            })
+
+            $('.btn.prompt1').click(function () {
+                look.prompt({
+                    content: '请输入123456,来通过验证',
+                    placeholder: '请输入验证码',
+                    yes() {
+                        var value = this.value;
+                        if (value === '123456') {
+                            look.success('输入正确');
+                            this.close();
+                        } else {
+                            look.error('输入有误，请重新输入');
+                        }
+                    }
+                });
+            });
+
+            $('.btn.prompt2').click(function () {
+                look.prompt({
+                    content: '带有默认value',
+                    value: '123456',
+                    yes() {
+                        look.msg(this.value);
+                    }
+                });
+            });
+            $('.btn.prompt2-0').click(function () {
+                look.prompt({
+                    content: '带有默认value',
+                    skin: '0',
+                    yes() {
+                        look.msg('您输入的是：' + this.value);
+                    }
+                });
+            });
+
+            $('.btn.confirm1').click(function () {
+                look.confirm({
+                    content: '你觉得look好用吗',
+                    buttons: [{
+                        text: '很不错',
+                        type: 'green',
+                        close: true,
+                        click() {
+                            look.success('感谢支持')
+                        }
+                    }, {
+                        text: '垃圾',
+                        type: 'red',
+                        close: true,
+                        click() {
+                            look.error({
+                                content: '我会努力的T.T',
+                                animateType: 'move'
+                            })
+                        }
+                    }, {
+                        text: '不评价',
+                        close: true,
+                        click() {
+                            look.msg('为什么不评价呢~')
+                        }
+                    }]
+                });
+            });
+
+            $('.btn.confirm1-0').click(function () {
+                look.confirm({
+                    content: '你觉得look好用吗',
+                    skin: '0',
+                    buttons: [{
+                        text: '很不错',
+                        type: 'green',
+                        close: true,
+                        click() {
+                            look.success('感谢支持')
+                        }
+                    }, {
+                        text: '垃圾',
+                        type: 'red',
+                        close: true,
+                        click() {
+                            look.error({
+                                content: '我会努力的T.T',
+                                animateType: 'move'
+                            })
+                        }
+                    }, {
+                        text: '不评价',
+                        close: true,
+                        click() {
+                            look.msg('为什么不评价呢~')
+                        }
+                    }]
+                });
+            });
+
+
+            $('.btn.loading1').click(function () {
+                look.loading({
+                    content: '加载中(3秒后关闭)'
+                }).close(3000);
+            });
+
+            $('.btn.msg1').click(function () {
+                look.msg('你好啊~')
+            });
+
+            $('.btn.msg2').click(function () {
+                look.success('你好啊~')
+            });
+
+            $('.btn.msg3').click(function () {
+                look.error('你好啊~')
+            });
+
+            $('.btn.iframe1').click(function () {
+                look.iframe({
+                    src: 'http://api.quyikai.com',
+                    width: '375px',
+                    height: '670px'
+                });
+            });
+
+            $('.btn.iframe2').click(function () {
+                look.iframe({
+                    src: 'http://api.quyikai.com',
+                    width: '375px',
+                    height: '670px'
+                }).maxSize();
+            });
+
+            $('.btn.iframe3').click(function () {
+                look.iframe({
+                    src: 'http://api.quyikai.com',
+                    width: '375px',
+                    height: '670px',
+                    titleBarButtons: ['close', 'large']
+                });
+            });
+
+            $('.btn.iframe4').click(function () {
+                look.iframe({
+                    src: 'http://api.quyikai.com',
+                    width: '375px',
+                    height: '670px',
+                    titleBarButtons: ['close', 'small']
+                });
+            });
+
+            $('.btn.wrap1').click(function () {
+                look.wrap({
+                    dom: "#wrap",
+                    width: '375px',
+                    height: '670px'
+                });
+            });
+
+        })
+
+    </script>
+</head>
+
+<body>
+    <div style="width: 800px;max-width: 100%; margin: 0 auto;" id="wrap">
+        <div class="line">
+            <h1>ICON</h1>
+            <div class="btn icon1">success</div>
+            <div class="btn icon2">error</div>
+            <div class="btn icon3">info</div>
+            <div class="btn icon4">doubt</div>
+            <div class="btn icon5">lock</div>
+            <div class="btn icon6">face-success</div>
+            <div class="btn icon7">face-error</div>
+        </div>
+        <br />
+        <div class="line">
+            <h1>ALERT</h1>
+            <div class="btn alert1">alert</div>
+            <div class="btn alert1-0 cur">alert(简约模式)</div>
+            <div class="btn alert2">alert(无遮罩)</div>
+            <div class="btn alert3">alert(自定义)</div>
+            <div class="btn alert4">alert(不显示title栏)</div>
+            <div class="btn alert5">alert(自动延迟关闭)</div>
+            <div class="btn alert6">alert(自定义位置)</div>
+        </div>
+        <br />
+        <hr>
+        <br />
+        <div class="line">
+            <h1>PROMPT</h1>
+            <div class="btn prompt1">prompt</div>
+            <div class="btn prompt2-0  cur">prompt(简约模式)</div>
+            <div class="btn prompt2">prompt(带默认value)</div>
+        </div>
+        <br />
+        <hr>
+        <br />
+        <div class="line">
+            <h1>CONFIRM</h1>
+            <div class="btn confirm1">confirm</div>
+            <div class="btn confirm1-0  cur">confirm(简约模式)</div>
+        </div>
+        <br />
+        <hr>
+        <br />
+        <div class="line">
+            <h1>LOADING</h1>
+            <div class="btn loading1">loading</div>
+        </div>
+        <br />
+        <hr>
+        <br />
+        <div class="line">
+            <h1>MESSAGE</h1>
+            <div class="btn msg1">msg</div>
+            <div class="btn msg2">success</div>
+            <div class="btn msg3">error</div>
+        </div>
+        <br />
+        <hr>
+        <br />
+        <div class="line">
+            <h1>IFRAME</h1>
+            <div class="btn iframe1">iframe</div>
+            <div class="btn iframe2">iframe(默认放大)</div>
+            <div class="btn iframe3">iframe(禁止最小化)</div>
+            <div class="btn iframe4">iframe(禁止最大化)</div>
+        </div>
+        <br />
+        <hr>
+        <br />
+        <div class="line">
+            <h1>WRAP</h1>
+            <div class="btn wrap1">wrap</div>
+        </div>
+        <br />
+        <hr>
+        <br />
+        <div class="line">
+            <h1>EVENT</h1>
+            <br />
+            <p>
+                <strong>窗口打开：</strong>onOpen</p>
+            <br />
+            <p>
+                <strong>窗口关闭：</strong>onClose</p>
+            <br />
+            <p>
+                <strong>点击遮罩层：</strong>clickScreen</p>
+            <br />
+            <p>
+                <strong>点击确定：</strong>ok(仅适用于alert类型)</p>
+            <br />
+            <p>
+                <strong>点击确定/关闭：</strong>yes/no(仅适用于其他类型)</p>
+            <p>(更多按钮请参考下面的：buttons)</p>
+        </div>
+        <br />
+        <hr>
+        <br />
+        <div class="line">
+            <h1>ATTRIBUTE</h1>
+            <br />
+            <p>
+                <strong>图标：</strong>icon [string] 可选值： success | error | info | doubt | lock | face-success | face-error</p>
+            <br />
+            <p>
+                <strong>标题：</strong>title [string] </p>
+            <br />
+            <p>
+                <strong>弹窗内容：</strong>content [string]</p>
+            <br />
+            <p>
+                <strong>层级：</strong>zIndex [string | number]</p>
+            <br />
+            <p>
+                <strong>高度：</strong>height [string | number] （string类型需要加单位，例如：'px'）</p>
+            <br />
+            <p>
+                <strong>宽度：</strong>width [string | number] （string类型需要加单位，例如：'px'）</p>
+            <br />
+            <p>
+                <strong>最大宽度：</strong>maxWidth [string | number] （string类型需要加单位，例如：'px'）</p>
+            <br />
+            <p>
+                <strong>最大高度：</strong>maxHeight [string | number] （string类型需要加单位，例如：'px'）</p>
+            <br />
+            <p>
+                <strong>最小宽度：</strong>minWidth [string | number] （string类型需要加单位，例如：'px'）</p>
+            <br />
+            <p>
+                <strong>最小高度：</strong>minHeight [string | number] （string类型需要加单位，例如：'px'）</p>
+            <br />
+            <p>
+                <strong>动画类型：</strong>animateType [string] （默认：elastic） 可选值：elastic(有弹性) | shake(抖动) | move(移动) | zoom(缩放) | rotate(旋转)
+                | gradually(逐渐的) | none(无动画)</p>
+            <br />
+            <p>
+                <strong>窗口定位：</strong>position [object] （注：需要将direction设置为false才能起作用） 可选值：遵循css规则</p>
+            <br />
+            <p>
+                <strong>窗口位置（不可与窗口定位同时使用）：</strong>direction [string] （默认：center）可选值：top | bottom | left | right | leftTop | rightTop
+                | leftBottom | rightBottom</p>
+            <br />
+            <p>
+                <strong>窗口缩放时，是否重新定位：</strong>windowResize [boolean] 默认：true </p>
+            <br />
+            <p>
+                <strong>自定义按钮：</strong>buttons [array] 例如： { text:string, click:function, type:"green | blue | red" } </p>
+            <br />
+            <p>
+                <strong>开启标题栏：</strong>titleBar [boolean] 默认：true</p>
+            <br />
+            <p>
+                <strong>要显示的头部按钮：</strong>titleBarButtons [array] 可选值：close | small | large</p>
+            <br />
+            <p>
+                <strong>显示遮罩：</strong>showScreen [boolean] 默认：true</p>
+            <br />
+            <p>
+                <strong>点击遮罩层时，是否关闭弹窗：</strong>clickScreenClose [boolean] 默认：false</p>
+            <br />
+            <p>
+                <strong>是否去除页面滚动条：</strong>isHideBar [boolean] 默认：false</p>
+            <br />
+            <p>ps：还有一些比较深的属性没写，如有需要，以后再贴</p>
+
+
+
+
+
+        </div>
+        <br />
+    </div>
+</body>
+
+</html>
